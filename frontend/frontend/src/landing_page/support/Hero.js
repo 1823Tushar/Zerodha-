@@ -1,0 +1,39 @@
+import React from 'react';
+
+function Hero() {
+    return (
+        <div className=' ' id='supportHero'>
+            <div className=' max-w-4xl mx-auto  text-white flex  justify-between '>
+                <div className='flex-1 mt-3 mb-8' >
+                    <h1 className='text-lg'>Support Portal </h1>
+                  <h1 className='text-xl mt-11'>  Search for an answer or browse help topics <br/>to create a ticket</h1>
+                  <br />
+
+                 <input placeholder='Eg. how do I activate F&o , why is my order getting rejected. ' 
+                   className="w-2/3 p-3 text-black bg-white rounded" />
+                <br />
+                <div className='space-x-3 mt-3 underline'>
+                <a>Track account opening</a>
+                <a>Track segment activation</a>
+                <a>Intraday </a>
+                <br></br>
+                <a>margins</a>
+                <a>  Kite user manual </a>
+                </div>
+                </div>
+                <div className=' mr-15 mt-3 space-y-4'>
+                    <a className='ml-70   text-lg'>Track ticket</a> 
+                   <h1 className='text-xl mt-12'> Featured</h1>
+                   <div className=''>
+                   <ol className='list-decimal underline'>
+                    <li><a>Current Takeovers and Delisting - january 2024 </a></li>
+                    <li><a>Latest Intraday leverages - Mis & CO</a></li>
+                   </ol>
+                   </div>
+                    </div>
+
+</div>
+        </div>
+    );
+}
+export default Hero;
