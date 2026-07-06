@@ -15,10 +15,10 @@ const Dashboard = () => {
         setSelectedStock(Stock);
     }
     return (
-        <div className=" flex flex-1 overflow-hidden">
+        <div className=" flex flex-1 h-[calc(100vh-60px)] overflow-hidden">
         
             <WatchList  onBuyClick={handleBuyClick} />
-            <div className="flex-1 overflow-y-auto p-5">
+            <div className="flex-1 h-full overflow-y-auto p-5">
                 <Routes>
                     <Route exact path="/" element= {<Summary selectedStock={selectedStock}/>} />
                     <Route path="/orders" element={<Orders/>} />

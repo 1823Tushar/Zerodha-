@@ -7,29 +7,47 @@ const BuyPanel = ({ stock }) => {
     const [stockQuantity, setStockQuantity] = useState(1);
     const [stockPrice, setStockPrice] = useState(0.0);
 
-    const handleBuyClick = () => {
-        axios.post('http://localhost:3002/newOrder', {
-            name: stock,
+    const handleBuyClick = async () => {
+        console.log("Buy clicked");
+        // console.log({
+        //      name: stock,
+        //     price: stockPrice,
+        //     qty: stockQuantity,
+        //     mode: 'BUY',
+
+        // })
+        try{
+
+        
+       const res = await axios.post('http://localhost:3002/newOrder', {
+            name: stock.name,
             price: stockPrice,
             qty: stockQuantity,
             mode: 'BUY',
-        })
+        });
+         console.log("success ", res.data);
+         } catch(err) {
+            console.log("Error", err.response?.data || err.message );
+         }
 
 
     };
    
     return (
+       
         <div className=" ">
-
             <div className="absolute  top-40 left-10 w-[350px] bg-white  shadow-lg  rounded-md z-50">
+                
                 <h2 className="flex justify-center">{stock.name}</h2>
                 <div className="flex  fex-row justify-evenly p-8 gap-4 h-19 mb-5">
                     <div className="flex-1 ">
-                        <input type="number" placeholder="qty" className="border p-2 w-full" onChange={(e) => setStockQuantity(e.target.value)}
+                        <input type="number" placeholder="qty" className="border p-2 w-full" onChange={(e) => setStockQuantity
+                        (Number(e.target.value))}
                             value={stockQuantity} />
                     </div>
                     <div className="flex-1">
-                        <input type="number" placeholder="price" className="border p-2 w-full " onChange={(e) => setStockPrice(e.target.value)}
+                        <input type="number" placeholder="price" className="border p-2 w-full " onChange={(e) => setStockPrice
+                        (Number(e.target.value))}
                             value={stockPrice} />
                     </div>
                 </div>

@@ -2,7 +2,9 @@ require('dotenv').config();
 // jo hmne dot env mai url diya vo isko yha add kr dega app mai
 const express = require("express");
 const mongoose = require("mongoose");
+// body parse data ko read krne k liye and json file mai krta hai iske binda output undefined 
 const bodyParser = require('body-parser');
+// cors fiffrent port ko allow krta hai jaise backend and forntend ki alg alg port ho
 const cors = require("cors");
 
 const PORT = process.env.PORT || 3002;
@@ -274,10 +276,7 @@ app.get('/allPositions', async(req, res) => {
   let allPositions = await PositionModel.find({});
   res.json(allPositions);
 });
-// app.get('/allOrders', async(req, res) => {
-//   let allOrders = await OrderModel.find({});
-//   res.json(allOrders);
-// });
+
 
 app.post('/newOrder', async(req,res) => {
  let newOrder = new OrderModel({
@@ -289,7 +288,10 @@ app.post('/newOrder', async(req,res) => {
  newOrder.save();
  res.send("order saved!");
 });
-
+ app.get('/allOrders', async(req, res) => {
+  let allOrders = await OrderModel.find({});
+  res.json(allOrders);
+});
 // or yea run kr k dega
 app.listen(PORT, () => {
     console.log("App Started!");

@@ -24,7 +24,7 @@ const TopBar = () => {
                 <div className="h-10 w-px border-l border-gray-300 mx-6"></div>
             </div >
             <div className=" flex item-center logo w-32 h-8 object-contain">
-<img src="..\public\logo.png"/>
+<img src="logo.png"/>
             </div>
             
              <Menu />
