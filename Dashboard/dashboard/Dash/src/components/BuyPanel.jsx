@@ -19,7 +19,7 @@ const BuyPanel = ({ stock }) => {
         try{
 
         
-       const res = await axios.post('http://localhost:3002/newOrder', {
+       const res = await axios.post('https://zerodha-backend-9mar.onrender.com', {
             name: stock.name,
             price: stockPrice,
             qty: stockQuantity,
