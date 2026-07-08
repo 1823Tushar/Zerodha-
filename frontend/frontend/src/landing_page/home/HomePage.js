@@ -23,7 +23,7 @@ function HomePage() {
         <OpenAccount />
         
 
-        </>// it is  empty react fragment
+        </>
      );
 }
 
