@@ -35,9 +35,9 @@ function Hero() {
             community initiatives to empower retail traders and investors.
           </p>
           <p >
-            <a style={{color:"blue"}}>
+            <span style={{color:"blue"}}>
               Rainmatter
-            </a>
+            </span>
             , our fintech fund and incubator, has invested in several fintech
             startups with the goal of growing the Indian capital markets.
           </p >
