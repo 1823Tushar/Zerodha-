@@ -13,21 +13,21 @@ function Hero() {
                    className="w-2/3 p-3 text-black bg-white rounded" />
                 <br />
                 <div className='space-x-3 mt-3 underline'>
-                <a>Track account opening</a>
-                <a>Track segment activation</a>
-                <a>Intraday </a>
-                <br></br>
-                <a>margins</a>
-                <a>  Kite user manual </a>
+                <span>Track account opening</span>
+                <span>Track segment activation</span>
+                <span>Intraday </span>
+                <span></span>
+                <span>margins</span>
+                <span>  Kite user manual </span>
                 </div>
                 </div>
                 <div className=' mr-15 mt-3 space-y-4'>
-                    <a className='ml-70   text-lg'>Track ticket</a> 
+                    <span className='ml-70   text-lg'>Track ticket</span> 
                    <h1 className='text-xl mt-12'> Featured</h1>
                    <div className=''>
                    <ol className='list-decimal underline'>
-                    <li><a>Current Takeovers and Delisting - january 2024 </a></li>
-                    <li><a>Latest Intraday leverages - Mis & CO</a></li>
+                    <li><span>Current Takeovers and Delisting - january 2024 </span></li>
+                    <li><span>Latest Intraday leverages - Mis & CO</span></li>
                    </ol>
                    </div>
                     </div>
