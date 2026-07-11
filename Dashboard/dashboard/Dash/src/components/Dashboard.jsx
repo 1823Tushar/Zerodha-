@@ -21,8 +21,8 @@ const Dashboard = () => {
             <div className="flex-1 h-full overflow-y-auto p-5">
                 <Routes>
                     <Route exact path="/" element= {<Summary selectedStock={selectedStock}/>} />
-                    <Route path="/orders" element={<orders/>} />
-                    <Route path="/holdings" element={<holdings/>} />
+                    <Route path="/orders" element={<Orders/>} />
+                    <Route path="/holdings" element={<Holdings/>} />
                     <Route path="/positions" element={<Positions/>} />
                     <Route path="/funds" element={<Funds/>} />
                     <Route path="/apps" element={<Apps/>} />
