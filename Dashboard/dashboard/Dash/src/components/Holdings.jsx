@@ -11,11 +11,15 @@ import { VerticalGraph } from "./VerticalGraph";
 const Holdings = () => {
     
     const [allHoldings, setAllHoldings] = useState([]);
-
+console.log("Holdings Component Rendered");
     useEffect(() =>{
-        axios.get("https://zerodha-backend-9mar.onrender.com/allHoldings").then((res) =>{
-            setAllHoldings(res.data);
-        })
+        console.log("api calling...")
+        axios.get("https://zerodha-backend-9mar.onrender.com/allHoldings").then((res) => {
+      console.log("Success:", res.data);
+      setAllHoldings(res.data);
+    })
+    .catch((err) => console.log(err));
+      
 
     }, []);
 
