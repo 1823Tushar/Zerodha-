@@ -22,7 +22,7 @@ const Dashboard = () => {
                 <Routes>
                     <Route exact path="/" element= {<Summary selectedStock={selectedStock}/>} />
                     <Route path="/orders" element={<Orders/>} />
-                    <Route path="/holdings" element={<Holdings/>} />
+                    <Route path="/holdings" element={<allHoldings/>} />
                     <Route path="/positions" element={<Positions/>} />
                     <Route path="/funds" element={<Funds/>} />
                     <Route path="/apps" element={<Apps/>} />
