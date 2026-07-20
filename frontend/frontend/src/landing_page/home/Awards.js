@@ -5,7 +5,7 @@ function Awards() {
         
         {/* Left Image */}
         <div className="md:w-1/2">
-          <img src="media/images/largestBroker.svg" alt="broker" />
+          <img src="/media/images/largestBroker.svg" alt="broker" />
         </div>
 
         {/* Right Content */}
