@@ -5,7 +5,7 @@ function Awards() {
         
         {/* Left Image */}
         <div className="md:w-1/2">
-          <img src="/media/images/largestBroker.svg" alt="broker" />
+          <img src="media/Images/largestBroker.svg" alt="broker" />
         </div>
 
         {/* Right Content */}
@@ -32,7 +32,7 @@ function Awards() {
               <li>Bonds and Groups</li>
             </ul>
           </div>
-           <img  src='media/images/pressLogos.png' className="mt-5 pr-25" style={{height: "50px"}}/>
+           <img  src='media/Images/pressLogos.png' className="mt-5 pr-25" style={{height: "50px"}}/>
         </div>
        
 
