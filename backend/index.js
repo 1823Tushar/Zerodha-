@@ -15,7 +15,9 @@ const dns = require("dns");
 const { HoldingModel } = require('./model/HoldingModel');
 const { PositionModel } = require('./model/PositionModel');
 const { OrderModel } = require('./model/OrderModel');
+const { UserModel } = require('./model/UserModel');
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
+const jwt = require("jsonwebtoken");
 
 
 const app = express();// yea apllication create kr k dega
@@ -195,77 +197,6 @@ res.send("Position data saved");
 
 });
 
-// app.get('/addOrders', async(req,res) =>{
-//     let tempOrder =  [
-//   {
-//     name: "INFY",
-//     price: 1555.45,
-//     percent: "-1.60%",
-//     isDown: true,
-//   },
-//   {
-//     name: "ONGC",
-//     price: 116.8,
-//     percent: "-0.09%",
-//     isDown: true,
-//   },
-//   {
-//     name: "TCS",
-//     price: 3194.8,
-//     percent: "-0.25%",
-//     isDown: true,
-//   },
-//   {
-//     name: "KPITTECH",
-//     price: 266.45,
-//     percent: "3.54%",
-//     isDown: false,
-//   },
-//   {
-//     name: "QUICKHEAL",
-//     price: 308.55,
-//     percent: "-0.15%",
-//     isDown: true,
-//   },
-//   {
-//     name: "WIPRO",
-//     price: 577.75,
-//     percent: "0.32%",
-//     isDown: false,
-//   },
-//   {
-//     name: "M&M",
-//     price: 779.8,
-//     percent: "-0.01%",
-//     isDown: true,
-//   },
-//   {
-//     name: "RELIANCE",
-//     price: 2112.4,
-//     percent: "1.44%",
-//     isDown: false,
-//   },
-//   {
-//     name: "HUL",
-//     price: 512.4,
-//     percent: "1.04%",
-//     isDown: false,
-//   },
-// ];
- 
-//   tempOrder.forEach((item) =>{
-//      let newOrder = new OrderModel({
-//      name: item.name,
-//     qty:  item.qty,
-//    percent: item.percent,
-//     isDown: item.isDown,
-//      });
-
-//      newOrder.save();
-//   });
-//   res.send("Order data was saved");
-
-// });
 
 
 app.get('/allHoldings', async(req, res) => {
@@ -291,6 +222,65 @@ app.post('/newOrder', async(req,res) => {
  app.get('/allOrders', async(req, res) => {
   let allOrders = await OrderModel.find({});
   res.json(allOrders);
+});
+
+app.post('/signup', async(req,res) => {
+    try{
+        const {name, email, password } = req.body;
+
+        const newUser = new UserModel ({
+            name,
+            email,
+            password,
+        });
+
+        await newUser.save();
+
+        res.json({
+            success: true,
+            message: "Signup Succesfully",
+        });
+
+
+    } catch (err) {
+     res.status(500).json({
+        success: false,
+        message: err.message
+     });
+    }
+});
+app.post('/login', async(req,res) => {
+    const { email, password } = req.body;
+
+    const user = await UserModel.findOne({email});
+    if(!user){
+        return res.json({
+
+       
+        success: false,
+        message: "User Not Found",
+         });
+    }
+
+    if(user.password !== password) {
+        return res.json({
+            success: false,
+            message: "Password does not Match",
+        });
+    }
+    // yea token  banaa k dega
+  const token = jwt.sign(
+    {email: user.email}, // is data ko payload khete hai
+    "mysecretkey",
+    {expiresIn: "1h"}
+
+  );
+
+res.json({
+    success: true,
+    message: "Login Successfully",
+    token: token,
+});
 });
 // or yea run kr k dega
 app.listen(PORT, () => {

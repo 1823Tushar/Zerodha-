@@ -5,6 +5,13 @@ import './index.css'
 import App from './App.jsx'
 import Home from './components/Home.jsx'
 
+
+// const token = localStorage.getItem("token");
+// console.log("Dashboard token", token);
+// if (!token) {
+//   window.location.href = "http://localhost:3000/login";
+// }
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

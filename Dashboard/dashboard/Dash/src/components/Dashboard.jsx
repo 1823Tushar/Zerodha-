@@ -8,12 +8,15 @@ import Summary from "./Summary";
 import WatchList from "./WatchList";
 import { Routes, Route } from "react-router-dom";
 
+
 const Dashboard = () => {
     const [selectedStock, setSelectedStock] = useState(null);
      
     const handleBuyClick=(Stock) => {
         setSelectedStock(Stock);
     }
+const token = localStorage.getItem("token");
+console.log(token);
     return (
         <div className=" flex flex-1 h-[calc(100vh-60px)] overflow-hidden">
         

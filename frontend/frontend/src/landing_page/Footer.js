@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
     return (
-        <div className='max-w-5x1 bg-gray-50 mt-10 mx-auto border-t border-black '>
+        <div className='max-w-5x1 bg-gray-50  mx-auto border-t border-black '>
              <div className='flex flex-col md:flex-row mt-10 '>
                 <div className='md:w-1/4 ml-5 '>
                  <img src='media/Images/logo.svg'  style={{width:"60%"}}/>
